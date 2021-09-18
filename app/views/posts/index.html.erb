@@ -2,10 +2,14 @@
 
 <div>
 <% @posts.each do |post| %>
+    <%= post.description %> : <%= post.images.public_images.count %>
+
     <div>
-      <%= image_tag post.image.url(:medium) %>
+      <% post.images.public_images.each do |img| %>
+        <%= image_tag img.image.url(:medium) %>
+        <% end %>
       <br>
-      <%= post.description %>
+
     </div>
   <% end %>
 

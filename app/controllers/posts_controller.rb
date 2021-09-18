@@ -1,9 +1,12 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
+
   def new
     @post = Post.new
   end
 
   def index
+
     @posts = Post.all
   end
 
@@ -12,12 +15,12 @@ class PostsController < ApplicationController
   end
 
   def create
+    # byebug
     @post = Post.new(permit_post)
     if @post.save
-
       if params[:images]
         params[:images].each { |image|
-          @post.image.create(image: image)
+          @post.images.create(image: image, is_public: params[:is_public])
         }
       end
 
@@ -31,6 +34,6 @@ class PostsController < ApplicationController
   private
 
   def permit_post
-    params.require(:post).permit(:image, :description)
+    params.require(:post).permit(:images, :description)
   end
 end
