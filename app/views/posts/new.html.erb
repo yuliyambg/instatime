@@ -1,7 +1,13 @@
 <h2>New Post</h2>
 
 <div>
-  <%= form_for @post do |f| %>
+  <%= form_for @post, html: { multipart: true }  do |f| %>
+    <div>
+    <%= f.label :images %>
+    <%#= f.file_field :image %>
+      <%= file_field_tag "images[]", type: :file, multiple: true %>
+    </div>
+    <br>
     <%= f.label :description %>
     <br>
     <%= f.text_area :description%>

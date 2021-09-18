@@ -1,5 +1,12 @@
 <h1>Posts</h1>
 
 <div>
-  <p>Some Text</p>
+<% @posts.each do |post| %>
+    <div>
+      <%= image_tag post.image.url(:medium) %>
+      <br>
+      <%= post.description %>
+    </div>
+  <% end %>
+
 </div>
