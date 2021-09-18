@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   def new
+    @post = Post.new
   end
 
   def index
@@ -7,5 +8,6 @@ class PostsController < ApplicationController
 
   def show
   end
+
 
 end
