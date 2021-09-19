@@ -1,0 +1,16 @@
+<h1>My Events</h1>
+
+<div>
+  <% @events.each do |event| %>
+    <%= link_to event.description, event_path(event) %> : <%= event.images.count %> : <%= event.is_public %>
+
+    <div>
+      <% event.images.each do |img| %>
+        <%= image_tag img.image.url(:medium) %>
+      <% end %>
+      <br>
+    </div>
+
+  <% end %>
+
+</div>

@@ -1,8 +1,0 @@
-<%#= image_tag(@post.image.url(:medium)) %>
-
-<% @post.images.each do |img| %>
-  <%= image_tag(img.image.url(:medium)) %>
-<% end %>
-
-<br>
-<h2><%= @post.description %></h2>
