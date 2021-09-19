@@ -1,0 +1,9 @@
+
+  <%= link_to event.description, event_path(event) %> : Images Count: <%= event.images.count %>
+
+  <div>
+  <% event.images.each do |img| %>
+    <%= image_tag img.image.url(:medium) %>
+  <% end %>
+  <br>
+</div>

@@ -2,7 +2,7 @@
   <%= image_tag(img.image.url(:medium)) %>
 <% end %>
 
-<%= button_to "delete", @event, :method => :delete %>
-
 <br>
 <h2><%= @event.description %></h2>
+
+<%= button_to "delete", @event, :method => :delete %>
