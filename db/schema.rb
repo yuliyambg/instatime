@@ -10,20 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_18_214920) do
+ActiveRecord::Schema.define(version: 2021_09_19_000622) do
 
-  create_table "images", force: :cascade do |t|
-    t.integer "post_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
-    t.boolean "is_public", default: false
-  end
-
-  create_table "posts", force: :cascade do |t|
+  create_table "events", force: :cascade do |t|
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -31,6 +20,19 @@ ActiveRecord::Schema.define(version: 2021_09_18_214920) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+    t.integer "user_id"
+    t.boolean "is_public", default: false
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.integer "event_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.boolean "is_public", default: false
   end
 
   create_table "users", force: :cascade do |t|
