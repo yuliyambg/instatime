@@ -1,0 +1,13 @@
+<div class="bg-light">
+  <h1>My Events</h1>
+  <h3> Public events </h3>
+  <% @events.user_public_events(current_user).each do |event| %>
+    <%= render partial: 'my_event', locals: { event: event } %>
+  <% end %>
+
+  <h3> Private Events </h3>
+  <% @events.user_private_events(current_user).each do |event| %>
+    <%= render partial: 'my_event', locals: { event: event } %>
+  <% end %>
+
+</div>

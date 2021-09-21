@@ -1,0 +1,16 @@
+<div class="bg-light">
+
+  <h1>Events</h1>
+  <% @events.each do |event| %>
+    <h5 class="text-primary"><%= event.description %>  - Images Count : <%= event.images.count %> </h5>
+
+    <div>
+      <% event.images.each do |img| %>
+        <%= image_tag img.image.url(:medium) %>
+      <% end %>
+      <br>
+
+    </div>
+  <% end %>
+
+</div>
