@@ -25,10 +25,6 @@ If you're on Mac OS X, you'll want to run the following with Homebrew:
 `brew install imagemagick`
 If you are on Ubuntu or Windows, pls refer to https://github.com/thoughtbot/paperclip#image-processor
 
-Next, seed the database:
-
-`rake db:seed`
-
 Then run the app in a local server:
 
 `rails server`
