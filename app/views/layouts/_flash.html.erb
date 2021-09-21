@@ -1,0 +1,3 @@
+<% if flash[:success] %><div class="alert alert-success"><%= format_flash_message(flash[:success]) %></div><% end %>
+<% if flash[:error] %><div class="alert alert-danger"><%= format_flash_message(flash[:error]) %></div><% end %>
+<% if flash[:alert] %><div class="alert alert-danger"><%= format_flash_message(flash[:alert]) %></div><% end %>

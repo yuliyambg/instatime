@@ -10,10 +10,11 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
+    @event = Event.where(id: params[:id]).last
 
     if !@event
       redirect_to events_path
+      return
     end
 
     if current_user.id == @event.user_id || @event.is_public
@@ -25,16 +26,14 @@ class EventsController < ApplicationController
   end
 
   def create
-    # byebug
     @event = Event.new(permit_event)
     @event.user_id = current_user.id
+    if params[:images]
+      params[:images].each { |image|
+        @event.images.build(image: image)
+      }
+    end
     if @event.save
-      if params[:images]
-        params[:images].each { |image|
-          @event.images.create(image: image)
-        }
-      end
-
       flash[:success] = "Success!"
       redirect_to event_path(@event)
     else
@@ -45,8 +44,13 @@ class EventsController < ApplicationController
 
   def destroy
     @event = Event.find(params[:id])
-    @event.destroy
-    redirect_to events_my_events_path
+    if @event and @event.user == current_user
+      @event.destroy
+      flash[:success] = "Event with id = #{@event.id} deleted."
+      redirect_to events_my_events_path
+    else
+      redirect_to events_my_events_path
+    end
   end
 
   def my_events

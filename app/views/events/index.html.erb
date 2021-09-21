@@ -1,13 +1,13 @@
-<h1>Events</h1>
+<div class="bg-light">
 
-<div>
-<% @events.each do |event| %>
-    <%= event.description %> : <%= event.images.count %>
+  <h1>Events</h1>
+  <% @events.each do |event| %>
+    <h5 class="text-primary"><%= event.description %>  - Images Count : <%= event.images.count %> </h5>
 
     <div>
       <% event.images.each do |img| %>
         <%= image_tag img.image.url(:medium) %>
-        <% end %>
+      <% end %>
       <br>
 
     </div>
