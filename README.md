@@ -29,8 +29,15 @@ Then run the app in a local server:
 
 `rails server`
 
-### Notation: Devise gem was used as authentication solution.
+To test the application you can login with:
+`email : test@example.com`
+`password : 123456`
+
+### Notation: 
+- **Devise gem** was used as authentication solution.
 For more information about Devise Gem, https://github.com/heartcombo/devise
+- **Paperclip** gem was used, as an easy file attachment library for ActiveRecord.
+- **Rspec** and **Factory Bot** gems were used for testing
 
 ## Functionalities
 
